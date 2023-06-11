@@ -9,33 +9,40 @@
     <!-- <link rel="stylesheet" href="https://rsms.me/inter/inter.css" /> -->
   </head>
   <body>
-    <div class="flex justify-center">
-      <img alt="logo" src="./assets/images/logo.png" class="w-[412px] px-12" />
-    </div>
+    <div class="flex flex-col items-center justify-center min-h-screen">
+      <div class="flex justify-center">
+        <img
+          alt="logo"
+          src="./assets/images/logo.png"
+          class="w-[412px] sm:w-[612px] px-12"
+        />
+      </div>
 
-    <div class="flex flex-col" id="login-form">
-      <form class="flex flex-col m-auto">
-        <input
-          class="p-2 mb-2 border-2 rounded-md border-slate-400"
-          type="email"
-          id="username"
-          name="username"
-          placeholder="z000000@shibaura-it.ac.jp"
-        />
-        <input
-          class="p-2 mb-4 border-2 rounded-md border-slateto-red-400"
-          type="password"
-          id="password"
-          name="password"
-        />
-        <button
-          class="p-2 text-white bg-teal-900 border-2 rounded-md"
-          type="submit"
-          form="login-form"
-        >
-          Login
-        </button>
-      </form>
+      <div class="flex flex-col" id="login-form">
+        <form class="flex flex-col m-auto">
+          <input
+            class="p-2 mb-2 text-center border-2 rounded-md border-slate-400"
+            type="email"
+            id="username"
+            name="username"
+            placeholder="z000000@shibaura-it.ac.jp"
+          />
+          <input
+            class="p-2 mb-4 text-center border-2 rounded-md border-slateto-red-400"
+            type="password"
+            id="password"
+            name="password"
+            placeholder="*************"
+          />
+          <button
+            class="p-2 text-white bg-teal-900 border-2 rounded-md"
+            type="submit"
+            form="login-form"
+          >
+            Login
+          </button>
+        </form>
+      </div>
     </div>
   </body>
 </html>
