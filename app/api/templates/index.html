@@ -5,14 +5,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Login</title>
-    <link href="../dist/output.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{ url_for('static', filename='css/output.css') }}"
+    />
   </head>
   <body>
     <div class="flex flex-col items-center justify-center min-h-screen">
       <div class="flex flex-col justify-center mb-6">
         <img
           alt="logo"
-          src="./assets/images/logo-sit.png"
+          src="../static/images/logo-sit.png"
           class="w-[412px] sm:w-[612px] px-12"
         />
       </div>
@@ -24,7 +28,7 @@
             type="email"
             id="username"
             name="username"
-            placeholder="z123456@shibaura-it.ac.jp"
+            placeholder="z123456"
           />
           <input
             class="p-2 mb-4 text-center border-2 rounded-md"

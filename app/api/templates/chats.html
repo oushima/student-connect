@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chats</title>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{ url_for('static', filename='css/output.css') }}"
+    />
+  </head>
+  <body class="flex flex-col min-h-screen">
+    <div class="flex-grow">
+      <!-- Content of the page -->
+      {% for user in users %}
+      <div
+        class="flex items-center m-3 ml-6 cursor-pointer"
+        onclick="window.location.href = '../conversation.html?sender_id=1&receiver_id=2&channel=private'"
+      >
+        <img
+          class="mr-2 rounded-lg w-14 h-14"
+          alt="avatar"
+          src="{{ user.avatar }}"
+        />
+        <p>{{ user.name }}</p>
+      </div>
+      <hr class="ml-[90px]" />
+      {% endfor %}
+    </div>
+
+    <footer class="fixed bottom-0 flex justify-center w-full p-6 bg-gray-100">
+      <ul class="flex space-x-6">
+        <li>Home</li>
+        <li>Rooms</li>
+        <li>Chats</li>
+        <li>Settings</li>
+      </ul>
+    </footer>
+  </body>
+</html>
