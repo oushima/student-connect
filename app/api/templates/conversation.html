@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Conversation</title>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{ url_for('static', filename='css/output.css') }}"
+    />
+  </head>
+  <body class="flex flex-col min-h-screen">
+    <div class="flex-grow">
+      <!-- Content of the page -->
+      <div id="message-container">
+        <!-- Messages will be dynamically added here -->
+      </div>
+
+      <!-- Content of the page -->
+      {% for message in messages %}
+      <div>
+        <!-- <p>ID: {{ message.id }}</p>
+        <p>Channel: {{ message.channel }}</p> -->
+        <p>Message ({{message.user_id}}): {{ message.message }}</p>
+        <!-- <p>Timestamp: {{ message.timestamp }}</p>
+        <p>Status: {{ message.status }}</p>
+        <p>User ID: {{ message.user_id }}</p> -->
+      </div>
+      {% endfor %}
+
+      <!-- Form to send messages -->
+      <form id="message-form" method="POST" action="/send-message">
+        <input
+          type="text"
+          id="message-input"
+          name="message"
+          placeholder="Enter your message"
+        />
+        <button type="submit">Send</button>
+      </form>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+      $(document).ready(function () {
+        $("#message-form").submit(function (event) {
+          event.preventDefault();
+
+          var message = $('input[name="message"]').val();
+
+          $.ajax({
+            url: "/send-message",
+            method: "POST",
+            data: { message: message },
+            success: function (response) {
+              console.log(response);
+              // Update the UI or perform any other necessary actions
+            },
+            error: function (error) {
+              console.error(error);
+              // Handle any errors
+            },
+          });
+        });
+      });
+    </script>
+  </body>
+</html>
